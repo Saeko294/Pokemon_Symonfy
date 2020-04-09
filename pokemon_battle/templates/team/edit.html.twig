@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Team{% endblock %}
+
+{% block body %}
+    <h1 style="width:1200px; margin:0 auto; margin-top: 1%">Modifier une équipe</h1>
+
+        {{ include('team/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <div align="center">
+        {{ include('team/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

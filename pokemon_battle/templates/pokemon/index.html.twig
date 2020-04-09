@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pokemon index{% endblock %}
+
+{% block body %}
+    <h1 style="width:1200px; margin:0 auto; margin-top: 3%">Liste des Pokémons</h1>
+
+    <div style="width:1200px; margin:0 auto; margin-top: 1%" align="center" class="jumbotron" >
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-success">
+                <th th scope="row">Identifiant</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Points de vie</th>
+                <th>Nature</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pokemon in pokemon %}
+            <tr class="table-success">
+                <th scope="row">{{ pokemon.id }}</th>
+                <th scope="row">{{ pokemon.name }}</th>
+                <td><img src="../../img/{{ pokemon.type }}.png"></td>
+                <td>{{ pokemon.hp }} HP</td>
+                <td>{{ pokemon.nature }}</td>
+                <td>{{ pokemon.description }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('pokemon_show', {'id': pokemon.id}) }}">show</a>
+                    <a class="btn btn-warning" href="{{ path('pokemon_edit', {'id': pokemon.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-warning" href="{{ path('pokemon_new') }}">Create new</a>
+    </div>
+{% endblock %}

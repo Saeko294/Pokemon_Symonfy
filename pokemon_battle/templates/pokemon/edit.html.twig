@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un Pokémon{% endblock %}
+
+{% block body %}
+    <h1 style="width:1200px; margin:0 auto; margin-top: 1%">Modifier un Pokémon</h1>
+
+    {{ include('pokemon/_form.html.twig', {'button_label': 'Update'}) }}
+<div align="center">
+    {{ include('pokemon/_delete_form.html.twig') }}
+</div>
+{% endblock %}
